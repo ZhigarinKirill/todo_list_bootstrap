@@ -1,0 +1,92 @@
+body {
+  margin-top: 20px;
+  background: #f8f8f8;
+}
+
+#doingInput {
+  height: 60px;
+  font-size: 16pt;
+  display: inline;
+}
+
+.todo-nav {
+  margin-top: 10px;
+  font-size: 14pt;
+}
+
+.todo-list {
+  margin: 10px 0;
+  font-size: 14pt;
+  padding: 15px;
+  border-radius: 0;
+}
+
+.todo-list.only-active .todo-item.complete {
+  display: none;
+}
+
+.todo-list.only-active .todo-item:not(.complete) {
+  display: block;
+}
+
+.todo-list.only-complete .todo-item:not(.complete) {
+  display: none;
+}
+
+.todo-list.only-complete .todo-item.complete {
+  display: block;
+}
+
+.todo-list .todo-item.complete span.todoTitle {
+  text-decoration: line-through;
+}
+
+.todo-item:hover {
+  background-color: #bdbdbd;
+}
+
+.card {
+  padding: 25px;
+  margin-bottom: 20px;
+  border: initial;
+  background: #fff;
+  border-radius: calc(0.15rem - 1px);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+.todo-item {
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  padding: 25px 5px 12px 30px;
+  transition: 0.2s;
+}
+
+.todoTitle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  padding: 5px 0px 5px 10px;
+  height: 100%;
+  width: 95%;
+}
+
+.delBtn.glyphicon.glyphicon-trash {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5%;
+  height: 100%;
+  padding-left: 16px;
+
+  padding-top: 10px;
+}
+
+.delBtn:hover {
+  background-color: #2f58ab;
+  color: white;
+}

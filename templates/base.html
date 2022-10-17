@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-white">
+            <div class="card-body">
+              <form action="/add" method="post" id="inputForm">
+                <span id="headerBlock">
+                  <input
+                    name="title"
+                    type="text"
+                    class="form-control add-task"
+                    id="doingInput"
+                    placeholder="Название..."
+                    required="required"
+                    pattern="[A-Za-zА-Яа-я0-9]+"
+                  />
+                </span>
+              </form>
+              <ul class="nav nav-pills todo-nav">
+                <li role="presentation" class="nav-item all-task active">
+                  <a href="#" class="nav-link">Все</a>
+                </li>
+                <li role="presentation" class="nav-item active-task">
+                  <a href="#" class="nav-link">Активные</a>
+                </li>
+                <li role="presentation" class="nav-item completed-task">
+                  <a href="#" class="nav-link">Завершенные</a>
+                </li>
+              </ul>
+              <div class="todo-list">
+                {% for todo in todo_list %}
+
+                <div
+                  class="todo-item {{ 'complete' if todo.completed else '' }}"
+                  id="todoId_{{ todo.id }}"
+                >
+                  <span class="todoTitle">{{ todo.title }}</span>
+                  <span
+                    class="delBtn {{ 'checked' if todo.completed else '' }} glyphicon glyphicon-trash"
+                  >
+                  </span>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/main.js"></script>
+  </body>
+</html>
