@@ -1,0 +1,56 @@
+{% extends "base_nav_bar.html" %} {% block html_head %}<link
+  rel="stylesheet"
+  href="../static/styles/todo_list.css"
+/>{% endblock %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-white">
+        <div class="card-body">
+          <form action="/add" method="post" id="inputForm">
+            <span id="headerBlock">
+              <input
+                name="title"
+                type="text"
+                class="form-control add-task"
+                id="doingInput"
+                placeholder="Название..."
+                required="required"
+                pattern="[A-Za-zА-Яа-я0-9]+"
+              />
+            </span>
+          </form>
+          <ul class="nav nav-pills todo-nav">
+            <li role="presentation" class="nav-item all-task active">
+              <a href="#" class="nav-link">Все</a>
+            </li>
+            <li role="presentation" class="nav-item active-task">
+              <a href="#" class="nav-link">Активные</a>
+            </li>
+            <li role="presentation" class="nav-item completed-task">
+              <a href="#" class="nav-link">Завершенные</a>
+            </li>
+          </ul>
+          <div class="todo-list">
+            {% for todo in todo_list %}
+
+            <div
+              class="todo-item {{ 'complete' if todo.completed else '' }}"
+              id="todoId_{{ todo.id }}"
+            >
+              <span class="todoTitle">{{ todo.title }}</span>
+              <span
+                class="delBtn {{ 'checked' if todo.completed else '' }} glyphicon glyphicon-trash"
+                ><i class="fa fa-trash" aria-hidden="true"></i>
+              </span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block footer %}
+<script type="text/javascript" src="../static/scripts/todo_list.js"></script>
+{% endblock %}

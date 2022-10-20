@@ -1,0 +1,9 @@
+{% extends 'base_nav_bar.html' %} {% block content %}
+<h2>Logged in User details</h2>
+<ul>
+  <li>Username: {{ current_user.name }}</li>
+  <li>Email: {{ current_user.email }}</li>
+  <li>Created on: {{ current_user.created_on }}</li>
+  <li>Updated on: {{ current_user.updated_on }}</li>
+</ul>
+{% endblock %}
